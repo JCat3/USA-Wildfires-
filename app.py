@@ -76,7 +76,7 @@ def DataRoute():
     
 
     session = Session(engine)
-    results = session.query(table.disc_pre_year, func.sum(table.fire_size).label("sum_fire_size"), func.sum(table.prec_pre_7).label("sum_precipitation")).group_by(table.disc_pre_year).\
+    results = session.query(table.disc_pre_year, func.sum(table.fire_size).label("sum_fire_size"), func.avg(table.prec_pre_7).label("sum_precipitation")).group_by(table.disc_pre_year).\
         order_by(table.disc_pre_year).all()
     session.close
 
