@@ -44,3 +44,4 @@ CREATE TABLE wildfire_info (
 );
 
 SELECT * FROM wildfire_info;
+

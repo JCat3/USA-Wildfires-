@@ -8,7 +8,7 @@ from flask import send_from_directory
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func 
 
 #import json
 import json
@@ -35,29 +35,60 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def IndexRoute():
     homepage = render_template("index.html")
     
+#choropleth map
+
+    session = Session(engine)
+    results = session.query(table.fire_size, table.state).all()
+    session.close
+
+    choropleth_data = []
+    
+    for fire_size, state in results:
+        dict = {}
+        dict["fire size"] = fire_size
+        dict["State"] = state
+        choropleth_data.append(dict)
+
+    #pie Chart
+
+    session = Session(engine)
+    results = session.query(func.count(table.stat_cause_descr), table.stat_cause_descr, table.state).group_by(table.state, table.stat_cause_descr).all()
+    session.close
+    
+    pie_data = []
+    
+    for cause_count, stat_cause_descr, state in results:
+        dict = {}
+        dict["Cause"] = stat_cause_descr
+        dict["state"] = state
+        dict["Count"] = cause_count
+        pie_data.append(dict)
+    
+    map_data = jsonify(choropleth_data)
+    pie_data = jsonify(pie_data)
 
     return homepage
-
-@app.route("/data")
+  
+@app.route("/lineGraph")
 def DataRoute():
 
+#animated line graph
     
-
 
     session = Session(engine)
     results = session.query(table.fire_size, table.latitude).all()
     session.close
 
-    fire_data = []
+    line_data = []
     
     for fire_size, latitude in results:
         dict = {}
         dict["fire_size"] = fire_size
         dict["latitude"] = latitude
-        fire_data.append(dict)
+        line_data.append(dict)
     
 
-    return jsonify(fire_data)
+    return jsonify(line_data)
 
     
 
