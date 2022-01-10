@@ -34,38 +34,6 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route("/")
 def IndexRoute():
     homepage = render_template("index.html")
-    
-# #choropleth map
-
-#     session = Session(engine)
-#     results = session.query(table.fire_size, table.state).all()
-#     session.close
-
-#     choropleth_data = []
-    
-#     for fire_size, state in results:
-#         dict = {}
-#         dict["Fire Size"] = fire_size
-#         dict["State"] = state
-#         choropleth_data.append(dict)
-
-    # #pie Chart
-
-    # session = Session(engine)
-    # results = session.query(func.count(table.stat_cause_descr), table.stat_cause_descr, table.state).group_by(table.state, table.stat_cause_descr).all()
-    # session.close
-    
-    # pie_data = []
-    
-    # for cause_count, stat_cause_descr, state in results:
-    #     dict = {}
-    #     dict["Cause"] = stat_cause_descr
-    #     dict["State"] = state
-    #     dict["Count"] = cause_count
-    #     pie_data.append(dict)
-    
-    # map_data = jsonify(choropleth_data)
-    # pie_data = jsonify(pie_data)
 
     return homepage
   
@@ -74,21 +42,6 @@ def IndexRoute():
 @app.route("/lineGraph")
 def lineGraphRoute():  
     linePage = render_template("lineGraph.html")
-
-    # session = Session(engine)
-    # results = session.query(table.disc_pre_year, func.sum(table.fire_size).label("sum_fire_size"), func.avg(table.prec_pre_7).label("sum_precipitation")).group_by(table.disc_pre_year).\
-    #     order_by(table.disc_pre_year).all()
-    # session.close
-
-    # line_data = []
-    
-    # for date, sum_fire_size, sum_precipitation in results:
-    #     dict = {}
-    #     dict["Date"] = date
-    #     dict["Fire Size"] = sum_fire_size
-    #     dict["Precipitation"] = sum_precipitation
-    #     line_data.append(dict)
-    
 
     return linePage
 
@@ -164,7 +117,6 @@ def choroplethDataRoute():
     return map_data
 
     
-
 
 if __name__ == '__main__':
     app.run(debug=True)
