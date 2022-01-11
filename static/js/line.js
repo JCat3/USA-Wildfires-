@@ -27,14 +27,14 @@ function drawLine() {
                 backgroundColor: ['rgba(255,26,104,0.2)'],
                 borderColor: ['rgba(255,26,104,1)'],
                 borderWidth: 1,
-                yAxisID: 'acres',
+                yAxisID: 'y',
             },{
                 label: "Average Precipitation (mm)",
                 data: precip,
                 backgroundColor: ['rgba(0,26,104,0.2)'],
                 borderColor: ['rgba(0,26,104,1)'],
                 borderWidth: 1,
-                yAxisID: 'mm',
+                yAxisID: 'y1',
             }]
         };
 
@@ -73,24 +73,9 @@ function drawLine() {
         const config = {
             type: 'line',
             data,
-            //     datasets: [{
-            //         label: "Total Acres Burned",
-            //         data: fire_size,
-            //         backgroundColor: ['rgba(255,26,104,0.2)'],
-            //         borderColor: ['rgba(255,26,104,1)'],
-            //         borderWidth: 1,
-            //         yAxisID: 'acres'
-            //     }, {
-            //         label: "Average Precipitation (mm)",
-            //         data: precip,
-            //         backgroundColor: ['rgba(0,26,104,0.2)'],
-            //         borderColor: ['rgba(0,26,104,1)'],
-            //         borderWidth: 1,
-            //         xAxisID: 'mm'
-            //     }]
-            // },
             options: {
-                // animation,
+                animation,
+                stacked: false,
                 plugins: {
                     title: {
                         display: true,
@@ -99,7 +84,7 @@ function drawLine() {
                 },
                 responsive: true,
                 scales: {
-                    yAxis: [{
+                    y: {
                         id: 'acres',
                         beginAtZero: true,
                         type: 'linear',
@@ -110,7 +95,8 @@ function drawLine() {
                                 return `${value} acres`;
                             }
                         }
-                    },{
+                    },
+                    y1: {
                         id: 'mm',
                         beginAtZero: true,
                         type: 'linear',
@@ -121,7 +107,7 @@ function drawLine() {
                                 return `${values} mm`;
                             }
                         }
-                    }]
+                    }
                 }
             }
         };
