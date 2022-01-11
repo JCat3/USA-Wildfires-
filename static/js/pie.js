@@ -40,7 +40,7 @@ function drawPie(state) {
         },
         height: 400,
         width: 700,
-        paper_bgcolor:'#F6DDCC',
+        paper_bgcolor:'#DCC9B6',
         annotations: [
             {
               font: {
