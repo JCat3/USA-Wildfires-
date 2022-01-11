@@ -25,7 +25,6 @@ function drawPie(state) {
     console.log(counts)
 
     
-    
 
     let chart_data = [{
         values: counts,
