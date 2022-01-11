@@ -10,51 +10,68 @@
 
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <h1>US Wildfires</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div class="article">
-          <h2>Wildfires in the US 1992 - 2015</h2>
+<body style="background-color:rgba(54, 53, 53, 0.973);">
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html" style="color:white"">USA Wild Fires
+            <img class="nav-fire" src="">
+          </a>
         </div>
       </div>
+    </nav>
+    <div class="hero text-center" style="color:white">
+      <h1>USA Wild Fires</h1>
+      <p>Data from 1991-2015</p>
     </div>
-    <div class="row">
-        <div class="col-xs-12  col-md-12">
-          <div id="us_map">
-            <!-- We append our choropleth here. -->
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12" style="color:white">
+          <h1>US Wildfires</h1>
         </div>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12  col-md-6">
-          <div id="line_graph">
-            <!-- We append our line graph here. -->
-          </div>
-        </div>
-        
       </div>
       <div class="row">
-        <div class="  col-md-2">
-        </div>
-        <div class="col-md-6">
-          <select class="margin-top" id="selDataset" onchange="optionChanged(this.value)"></select>
-          <div id="pie_chart">
-            <!-- We append our pie chart here. -->
-          
-
+        <div class="col-xs-12  col-md-9">
+          <div class="article" style="color:white">
+            <h2>Wildfires in the US 1992 - 2015</h2>
           </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+          <div class="col-xs-12  col-md-12">
+            <div id="us_map">
+              <!-- We append our choropleth here. -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12  col-md-6">
+            <div id="line_graph">
+              <!-- We append our line graph here. -->
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="  col-md-2">
+          </div>
+          <div class="col-md-6">
+            <select class="margin-top" id="selDataset" onchange="optionChanged(this.value)"></select>
+            <div id="pie_chart">
+              <!-- We append our pie chart here. -->
+            
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Footer-->
 
-  <!-- Footer-->
+  </div>
+  
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
