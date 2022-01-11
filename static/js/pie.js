@@ -1,10 +1,5 @@
 // Pie chart - causes with dropdown menu 
 
-//imports
-
-
-
-
 console.log("pie.js is loaded")
 
 
@@ -24,21 +19,28 @@ function drawPie(state) {
     console.log("counts")
     console.log(counts)
 
-    
 
     let chart_data = [{
         values: counts,
         labels: causes,
-        // domain: {column: 0},
+        textinfo: 'none',
         type: 'pie',
-        hole: .4,
+        hole: .65,
         text: state,
-        textposition: 'inside',
+        textposition: 'inside'
       }];
       
       let layout = {
+        title: {
+          text:'Fire Causes by State',
+          font: {
+            family: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+            size: 24
+          }
+        },
         height: 400,
         width: 700,
+        paper_bgcolor:'#F6DDCC',
         annotations: [
             {
               font: {
