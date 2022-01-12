@@ -19,7 +19,6 @@ function drawPie(state) {
     console.log("counts")
     console.log(counts)
 
-
     let chart_data = [{
         values: counts,
         labels: causes,
@@ -30,9 +29,65 @@ function drawPie(state) {
         textposition: 'inside'
       }];
       
+      getStateName = {
+        "AL": "Alabama",
+        "AK": "Alaska",
+        "AR": "Arkansas",
+        "AZ": "Arizona",
+        "CA": "California",
+        "CO": "Colorado",
+        "CT": "Connecticut",
+        "DE": "Delaware",
+        "FL": "Florida",
+        "GA": "Georgia",
+        "HI": "Hawaii",
+        "IA": "Iowa ",
+        "ID":"Idaho",
+        "IL":"Illinois",
+        "IN":"Indiana",
+        "KS":"Kansas City",
+        "KY":"Kentuck",
+        "LA":"Louisiana",
+        "MA":"Massachussets",
+        "MD":"Maryland",
+        "ME":"Maine",
+        "MI":"Michigian",
+        "MN":"Minnesota",
+        "MO":"Missouri",
+        "MS":"Mississipi",
+        "MT":"Montana",
+        "NC":"North Carolina",
+        "ND":"North Dakota",
+        "NE":"Nebraska",
+        "NH":"New Hampshires",
+        "NJ":"New Jersey",
+        "NM":"New Mexico",
+        "NV":"Nevada",
+        "NY":"New York",
+        "OH":"Ohio",
+        "OK":"Oklahoma",
+        "OR":"Oregon",
+        "PA":"Pennsylvania",
+        "PR":"Puerto Rico",
+        "RI":"Rhode Island",
+        "SC":"South Carolina",
+        "SD":"South Dakota",
+        "TN":"Tennessee",
+        "TX":"Texas",
+        "UT":"Utah",
+        "VA":"Virginia",
+        "VT":"Vermont",
+        "WA":"Washington",
+        "WI":"Wisconsin",
+        "WV":"Westy Virginia",
+        "WY":"Wyoming",
+    };
+
+      stateName = getStateName[state];
+
       let layout = {
         title: {
-          text:'Fire Causes by State',
+          text:`Wildfire Causes in ${stateName}`,
           font: {
             family: '"Helvetica Neue", Helvetica, Arial, sans-serif',
             size: 24,

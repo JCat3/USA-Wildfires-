@@ -81,13 +81,9 @@ info.onAdd = function (map) {
     return this._div;
 };
 
-
-//////////NEED TO FIX PROPS.STUSPS =>fire count
-
 // method that we will use to update the control based on feature properties passed
 info.update = function (props, count) {
-    // let fireCount = getNumFires[props.STUSPS];
-    this._div.innerHTML = '<h4>Number of wildfires in US</h4>' +  (props ?
+    this._div.innerHTML = '<h4>Number of Wildfires in US</h4>' +  (props ?
         '<b>' + props.NAME + '</b><br />' + count + ' wildfires'
         : 'Hover over a state');
 };
@@ -116,9 +112,6 @@ function highlightFeature(e) {
 
     info.update(layer.feature.properties, fireCount);
 }
-
-//////////NEED TO FIX; does not reset 
-
 // mouseout event
 function resetHighlight(e) {
     
@@ -130,28 +123,14 @@ function resetHighlight(e) {
     console.log('MOUSE OVER', stateAbbrev);
     let fireCount = getNumFires[stateAbbrev];
 
-    // layer.setStyle({
-    //     weight: 5,
-    //     color: '#666',
-    //     dashArray: '',
-    //     fillOpacity: 0.7
-    // });
-
-    
-    return {
+    layer.setStyle( {
         fillColor: getColor(fireCount),
         weight: 2,
         opacity: 1,
         color: 'white',
         dashArray: '3',
         fillOpacity: 0.7
-    };
-
-    // if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    //     layer.bringToFront();
-    // }
-
-    // info.update(layer.feature.properties, fireCount);
+    });
 
     info.update();
 }
@@ -165,8 +144,6 @@ function zoomToFeature(e) {
     myMap.fitBounds(e.target.getBounds());
     drawPie(state);
 }
-
-// console.log('STATE CHOSEN', stateChosen);
 
 // add listeners to state layers
 function onEachFeature(feature, layer) {
@@ -185,7 +162,6 @@ geojson = d3.json(link).then(function(data) {
 });
 
 // //Custom Legend Control
-// //Creating a control with a legend is easier, since it is static and doesn’t change on state hover. JavaScript code:
 
 let legend = L.control({position: 'bottomright'});
 
