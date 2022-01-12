@@ -61,7 +61,7 @@ def lineDataRoute():
     for date, sum_fire_size, sum_precipitation in results:
         dict = {}
         dict["Date"] = date
-        dict["Fire Size"] = sum_fire_size
+        dict["Fire_Size"] = sum_fire_size
         dict["Precipitation"] = sum_precipitation
         line_data.append(dict)
     
