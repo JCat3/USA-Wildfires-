@@ -35,17 +35,21 @@ function drawPie(state) {
           text:'Fire Causes by State',
           font: {
             family: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-            size: 24
+            size: 24,
+            color: "white"
           }
         },
         height: 400,
         width: 700,
         paper_bgcolor:'rgba(54, 53, 53, 0.973)',
+        font: {
+          color: 'white'
+        },
         annotations: [
             {
               font: {
                 size: 20,
-                // color: 'white'
+                color: "white"
               },
               showarrow: false,
               text: state,
