@@ -68,7 +68,6 @@ def lineDataRoute():
 
     return jsonify(line_data)
 
-
 #choropleth map api endpoint
 
 @app.route("/pie_data")
