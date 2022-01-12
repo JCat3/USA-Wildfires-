@@ -100,23 +100,34 @@ def pieDataRoute():
 def choroplethDataRoute():
 
     session = Session(engine)
-    results = session.query(table.fire_size, table.state).all()
+    results = session.query(func.sum(table.fire_size), table.state, func.count(table.state)).group_by(table.state).all()
     session.close
 
-    choropleth_data = []
+    map_data = []
     
-    for fire_size, state in results:
+    for fire_size, state, fire_count in results:
         dict = {}
-        dict["Fire Size"] = fire_size
+        dict["FireSize"] = fire_size
         dict["State"] = state
-        choropleth_data.append(dict)
-
+        dict["FireCount"] = fire_count
+        map_data.append(dict)
     
-    map_data = jsonify(choropleth_data)
+    map_data = jsonify(map_data)
 
     return map_data
 
-    
+@app.route("/geojson/<filename>")
+def GeoJsonRoute(filename):    
+
+    filepath = f"static/data/{filename}"
+
+    try: 
+        with open(filepath) as f:    
+            geojson_data = json.load(f)
+    except:
+        geojson_data = {'Error': f'{filename} not found on server!'}
+
+    return jsonify(geojson_data)    
 
 if __name__ == '__main__':
     app.run(debug=True)
