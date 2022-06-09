@@ -1,5 +1,5 @@
 # USA-Wildfires-
-Project 2 - Web Visualizations
+Web Visualizations
 
 Please clone this repository to your desktop and then do the following:
 
